@@ -1,0 +1,22 @@
+# if error with rakefile
+# language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t francisgalicia/client-test -f ./client/Dockerfile.dev ./client
+  # you can add another build command for testing another file
+
+script:
+ # If the command here produces an exit code anything other than 0
+ # the the build has failed and travis file let us know.
+ # NOTE: npm test does not by default exit. use "-- --coverage"
+  - docker run -e CI=true francisgalicia/client-test npm test
+
+after_success:
+  # Once all the test succeed, go ahead and build the production images
+  - docker build -t francisgalicia/multi-client ./client
+  - docker build -t francisgalicia/multi-nginx ./nginx
+  - docker build -t francisgalicia/multi-api ./api
+  - docker build -t francisgalicia/multi-worker ./worker
