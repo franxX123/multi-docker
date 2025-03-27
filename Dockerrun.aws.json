@@ -1,3 +1,23 @@
 {
-    
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "francisgalicia/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "api",
+            "image": "francisgalicia/multi-api",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "francisgalicia/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+    ]
 }
