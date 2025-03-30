@@ -1,5 +1,5 @@
 # if error with rakefile
-language: generic
+# language: generic
 sudo: required
 services:
   - docker
@@ -25,10 +25,6 @@ script:
 #   - docker push fr6nk12/multi-nginx
 #   - docker push fr6nk12/multi-api
 #   - docker push fr6nk12/multi-worker
-
-# before_deploy:
-#   - gem install bundler
-#   - bundle update --bundler
 
 deploy:
   provider: elasticbeanstalk
