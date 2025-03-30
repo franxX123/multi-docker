@@ -1,6 +1,9 @@
 # if error with rakefile
 # language: generic
 sudo: required
+language: node_js
+node_js:
+  - "22"
 services:
   - docker
 
