@@ -3,21 +3,37 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "francisgalicia/multi-client",
+            "image": "fr6nk12/multi-client",
             "hostname": "client",
             "essential": false
         },
         {
             "name": "api",
-            "image": "francisgalicia/multi-api",
+            "image": "fr6nk12/multi-api",
             "hostname": "api",
             "essential": false
         },
         {
             "name": "worker",
-            "image": "francisgalicia/multi-worker",
+            "image": "fr6nk12/multi-worker",
             "hostname": "worker",
             "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "fr6nk12/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+
+            "links": [
+                "client", "server"
+            ]
         }
     ]
 }
