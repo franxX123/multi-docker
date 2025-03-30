@@ -26,6 +26,9 @@ script:
 #   - docker push fr6nk12/multi-api
 #   - docker push fr6nk12/multi-worker
 
+before_deploy:
+  - gem install bundler
+
 deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
