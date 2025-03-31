@@ -1,6 +1,15 @@
 # if error with rakefile
 # language: generic
 sudo: required
+dist: bionic
+language: node_js
+node_js:
+  - "16"
+
+# or if you need a specific Ruby for dpl:
+rvm:
+  - 3.1
+
 services:
   - docker
 
