@@ -7,6 +7,8 @@ services:
 before_install:
   - docker build -t fr6nk12/client-test -f ./client/Dockerfile.dev ./client
   # you can add another build command for testing another file
+  - gem install nokogiri
+  - gem install logger
 
 script:
  # If the command here produces an exit code anything other than 0
@@ -25,10 +27,6 @@ script:
 #   - docker push fr6nk12/multi-nginx
 #   - docker push fr6nk12/multi-api
 #   - docker push fr6nk12/multi-worker
-
-before_deploy:
-  - gem install bundler
-  - gem install nokogiri --platform=ruby
 
 deploy:
   provider: elasticbeanstalk
