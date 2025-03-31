@@ -7,9 +7,7 @@ services:
 before_install:
   - docker build -t fr6nk12/client-test -f ./client/Dockerfile.dev ./client
   # you can add another build command for testing another file
-  - gem install nokogiri --platform=ruby
-  - gem install logger
-
+  - gem update --system
 script:
  # If the command here produces an exit code anything other than 0
  # the the build has failed and travis file let us know.
