@@ -1,5 +1,6 @@
 # if error with rakefile
 # language: generic
+dist: focal
 sudo: required
 services:
   - docker
